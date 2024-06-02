@@ -110,4 +110,27 @@ print(predicted_labels)
 '''
 Model was over fit
 one epoch takes 7.2 minutes
+
+Epoch 20 Results Analysis:
+
+Test Accuracy (0.6987): The model now correctly predicts labels for about 69.87% of the samples in your test set. This is a slight improvement compared to your previous run, indicating that the model is continuing to learn.
+
+Test Precision (0.8267): The precision has slightly increased, suggesting that the model is getting better at avoiding false positives.
+
+Test Recall (0.6074): The recall has slightly decreased.  This means the model might be missing a few more true positives compared to the previous run. However, this slight fluctuation can happen during training, and it's not necessarily a cause for concern if the overall trend is positive.
+
+Early Stopping at Epoch 20:
+
+The model stopped at epoch 20 again due to the early stopping callback. This indicates that the validation loss didn't improve for ten consecutive epochs. This is a positive sign, as it prevents overfitting and saves you from unnecessary training time.
+
+Next Steps:
+
+Evaluate the Trade-off: Examine the precision and recall values. Do you need higher precision (fewer false positives) or higher recall (fewer false negatives)? Depending on your specific use case, you might prioritize one over the other.
+Threshold Adjustment: If you want to improve recall slightly, you can try lowering the prediction threshold from 0.35 to 0.3 or even 0.25. However, remember that this might decrease precision.
+Model Fine-tuning (Optional): If you're not satisfied with the overall performance, you could try fine-tuning some hyperparameters, such as:
+Learning Rate: Experiment with a slightly different learning rate (e.g., 0.00001).
+Batch Size: Try different batch sizes to see if it affects performance.
+Regularization: You could add L2 regularization to the LSTM layers or increase the dropout rate further to see if it helps prevent overfitting and improves generalization.
+Data Augmentation (Optional): If you have the time and resources, experiment with data augmentation to create more training samples. This can potentially help the model generalize better.
+
 '''
