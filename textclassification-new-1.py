@@ -133,4 +133,12 @@ Batch Size: Try different batch sizes to see if it affects performance.
 Regularization: You could add L2 regularization to the LSTM layers or increase the dropout rate further to see if it helps prevent overfitting and improves generalization.
 Data Augmentation (Optional): If you have the time and resources, experiment with data augmentation to create more training samples. This can potentially help the model generalize better.
 
+loaded_model = tf.keras.models.load_model('casa_model.h5')
+
+
+# 7. Making predictions (example) with adjusted threshold
+example_comment = ["baggage is damaged at airport."]
+predictions = loaded_model.predict([example_comment]) # Ensure a list of lists
+predicted_labels = mlb.inverse_transform(predictions > 0.35)  # Experiment with thresholds 
+print(predicted_labels)
 '''
